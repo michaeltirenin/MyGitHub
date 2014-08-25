@@ -9,10 +9,15 @@
 /* Begin PBXBuildFile section */
 		F2B8BD7F19ABC4FC002A493F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BD7E19ABC4FC002A493F /* main.m */; };
 		F2B8BD8219ABC4FC002A493F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BD8119ABC4FC002A493F /* AppDelegate.m */; };
-		F2B8BD8519ABC4FC002A493F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BD8419ABC4FC002A493F /* ViewController.m */; };
 		F2B8BD8819ABC4FC002A493F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B8BD8619ABC4FC002A493F /* Main.storyboard */; };
 		F2B8BD8A19ABC4FC002A493F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2B8BD8919ABC4FC002A493F /* Images.xcassets */; };
 		F2B8BD9619ABC4FC002A493F /* MyGitHubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BD9519ABC4FC002A493F /* MyGitHubTests.m */; };
+		F2B8BDA519ABC60C002A493F /* SampleDataRepository.json in Resources */ = {isa = PBXBuildFile; fileRef = F2B8BDA419ABC60C002A493F /* SampleDataRepository.json */; };
+		F2B8BDA819ABC959002A493F /* MyReposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDA719ABC959002A493F /* MyReposViewController.m */; };
+		F2B8BDAB19ABC981002A493F /* MyFollowersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDAA19ABC981002A493F /* MyFollowersViewController.m */; };
+		F2B8BDAE19ABC98E002A493F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDAD19ABC98E002A493F /* SearchViewController.m */; };
+		F2B8BDB119ABCD3D002A493F /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDB019ABCD3D002A493F /* NetworkController.m */; };
+		F2B8BDB419ABCE26002A493F /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDB319ABCE26002A493F /* Repository.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,15 +34,24 @@
 		F2B8BD7919ABC4FC002A493F /* MyGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B8BD7D19ABC4FC002A493F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2B8BD7E19ABC4FC002A493F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F2B8BD8019ABC4FC002A493F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		F2B8BD8119ABC4FC002A493F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F2B8BD8319ABC4FC002A493F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F2B8BD8419ABC4FC002A493F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F2B8BD8019ABC4FC002A493F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MyGitHub/AppDelegate.h; sourceTree = "<group>"; };
+		F2B8BD8119ABC4FC002A493F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MyGitHub/AppDelegate.m; sourceTree = "<group>"; };
 		F2B8BD8719ABC4FC002A493F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2B8BD8919ABC4FC002A493F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F2B8BD8F19ABC4FC002A493F /* MyGitHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyGitHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B8BD9419ABC4FC002A493F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2B8BD9519ABC4FC002A493F /* MyGitHubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyGitHubTests.m; sourceTree = "<group>"; };
+		F2B8BDA419ABC60C002A493F /* SampleDataRepository.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SampleDataRepository.json; path = ../SampleDataRepository.json; sourceTree = "<group>"; };
+		F2B8BDA619ABC959002A493F /* MyReposViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReposViewController.h; sourceTree = "<group>"; };
+		F2B8BDA719ABC959002A493F /* MyReposViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReposViewController.m; sourceTree = "<group>"; };
+		F2B8BDA919ABC981002A493F /* MyFollowersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFollowersViewController.h; sourceTree = "<group>"; };
+		F2B8BDAA19ABC981002A493F /* MyFollowersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFollowersViewController.m; sourceTree = "<group>"; };
+		F2B8BDAC19ABC98E002A493F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		F2B8BDAD19ABC98E002A493F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		F2B8BDAF19ABCD3D002A493F /* NetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkController.h; sourceTree = "<group>"; };
+		F2B8BDB019ABCD3D002A493F /* NetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkController.m; sourceTree = "<group>"; };
+		F2B8BDB219ABCE26002A493F /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
+		F2B8BDB319ABCE26002A493F /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +75,8 @@
 		F2B8BD7019ABC4FC002A493F = {
 			isa = PBXGroup;
 			children = (
+				F2B8BD8019ABC4FC002A493F /* AppDelegate.h */,
+				F2B8BD8119ABC4FC002A493F /* AppDelegate.m */,
 				F2B8BD7B19ABC4FC002A493F /* MyGitHub */,
 				F2B8BD9219ABC4FC002A493F /* MyGitHubTests */,
 				F2B8BD7A19ABC4FC002A493F /* Products */,
@@ -79,11 +95,10 @@
 		F2B8BD7B19ABC4FC002A493F /* MyGitHub */ = {
 			isa = PBXGroup;
 			children = (
-				F2B8BD8019ABC4FC002A493F /* AppDelegate.h */,
-				F2B8BD8119ABC4FC002A493F /* AppDelegate.m */,
-				F2B8BD8319ABC4FC002A493F /* ViewController.h */,
-				F2B8BD8419ABC4FC002A493F /* ViewController.m */,
-				F2B8BD8619ABC4FC002A493F /* Main.storyboard */,
+				F2B8BD9F19ABC520002A493F /* Models */,
+				F2B8BDA019ABC52F002A493F /* Views */,
+				F2B8BDA119ABC543002A493F /* Controllers */,
+				F2B8BDA419ABC60C002A493F /* SampleDataRepository.json */,
 				F2B8BD8919ABC4FC002A493F /* Images.xcassets */,
 				F2B8BD7C19ABC4FC002A493F /* Supporting Files */,
 			);
@@ -114,6 +129,38 @@
 				F2B8BD9419ABC4FC002A493F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F2B8BD9F19ABC520002A493F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F2B8BDB219ABCE26002A493F /* Repository.h */,
+				F2B8BDB319ABCE26002A493F /* Repository.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F2B8BDA019ABC52F002A493F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F2B8BD8619ABC4FC002A493F /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F2B8BDA119ABC543002A493F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F2B8BDAF19ABCD3D002A493F /* NetworkController.h */,
+				F2B8BDB019ABCD3D002A493F /* NetworkController.m */,
+				F2B8BDA619ABC959002A493F /* MyReposViewController.h */,
+				F2B8BDA719ABC959002A493F /* MyReposViewController.m */,
+				F2B8BDA919ABC981002A493F /* MyFollowersViewController.h */,
+				F2B8BDAA19ABC981002A493F /* MyFollowersViewController.m */,
+				F2B8BDAC19ABC98E002A493F /* SearchViewController.h */,
+				F2B8BDAD19ABC98E002A493F /* SearchViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2B8BD8819ABC4FC002A493F /* Main.storyboard in Resources */,
+				F2B8BDA519ABC60C002A493F /* SampleDataRepository.json in Resources */,
 				F2B8BD8A19ABC4FC002A493F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,8 +263,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2B8BD8519ABC4FC002A493F /* ViewController.m in Sources */,
+				F2B8BDB419ABCE26002A493F /* Repository.m in Sources */,
+				F2B8BDAB19ABC981002A493F /* MyFollowersViewController.m in Sources */,
+				F2B8BDA819ABC959002A493F /* MyReposViewController.m in Sources */,
+				F2B8BDAE19ABC98E002A493F /* SearchViewController.m in Sources */,
 				F2B8BD8219ABC4FC002A493F /* AppDelegate.m in Sources */,
+				F2B8BDB119ABCD3D002A493F /* NetworkController.m in Sources */,
 				F2B8BD7F19ABC4FC002A493F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

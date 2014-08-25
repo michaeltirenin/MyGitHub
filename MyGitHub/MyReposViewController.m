@@ -7,8 +7,13 @@
 //
 
 #import "MyReposViewController.h"
+#import "MyRepoTableViewCell.h"
+#import "Repository.h"
+#import "NetworkController.h"
 
-@interface MyReposViewController ()
+@interface MyReposViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -16,10 +21,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    self.navigationItem.title = @"My Repos";
+
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    MyRepoTableViewCell *repoCell = [tableView dequeueReusableCellWithIdentifier:@"RepoCell" forIndexPath:indexPath];
+
+    repoCell.textLabel.text = @"test";
+
+    return repoCell;
 }
 
 /*

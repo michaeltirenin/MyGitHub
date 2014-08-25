@@ -7,8 +7,19 @@
 //
 
 #import "SearchViewController.h"
+#import "SearchTableViewCell.h"
+#import "Repository.h"
+#import "NetworkController.h"
 
-@interface SearchViewController ()
+@interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+
+@property (weak, nonatomic) Repository *repositories;
+@property (weak, nonatomic) NetworkController *networkController;
+
+@property (weak, nonatomic) NSString *searchTerm;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *searchBarOutlet;
 
 @end
 
@@ -16,10 +27,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    self.searchBarOutlet.delegate = self;
+    
+    self.navigationItem.title = @"Search GitHub";
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    SearchTableViewCell *searchCell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
+    
+    searchCell.textLabel.text = @"test";
+    
+    return searchCell;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    self.searchTerm = searchBar.text;
+    
+    NSLog(@"searchbar clicked");
+    
+    
 }
 
 /*

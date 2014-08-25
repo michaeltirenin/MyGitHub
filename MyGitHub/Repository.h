@@ -15,6 +15,4 @@
 @property (strong, nonatomic) NSString *repoDescription; //"description"
 @property (strong, nonatomic) NSURL *repoURL; //"owner"/"url
 
-
-
 @end

@@ -10,7 +10,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Repository.h"
 
 @interface NetworkController : NSObject
 
+@property (nonatomic, strong) NSString *apiDomain;
+@property (nonatomic, strong) NSString *searchEndpoint;
+
+// func parseSuccessfulResponse(responseData: NSData) -> [Question] {
+-(Repository *)parseSuccessfulResponse:(NSData *)responseData;
+
+// func fetchQuestionsForSearchTerm(searchTerm : String, callback: (questions: [Question]?, errorDescription: String?) -> Void) {
+//-(void)fetchQuestionsForSearchTerm:(NSString *)searchTerm
 @end

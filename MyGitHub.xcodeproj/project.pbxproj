@@ -18,6 +18,9 @@
 		F2B8BDAE19ABC98E002A493F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDAD19ABC98E002A493F /* SearchViewController.m */; };
 		F2B8BDB119ABCD3D002A493F /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDB019ABCD3D002A493F /* NetworkController.m */; };
 		F2B8BDB419ABCE26002A493F /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDB319ABCE26002A493F /* Repository.m */; };
+		F2B8BDB719ABD3A1002A493F /* MyRepoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDB619ABD3A1002A493F /* MyRepoTableViewCell.m */; };
+		F2B8BDBA19ABD3B5002A493F /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDB919ABD3B5002A493F /* SearchTableViewCell.m */; };
+		F2B8BDBD19ABD3DE002A493F /* MyFollowerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDBC19ABD3DE002A493F /* MyFollowerCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,12 @@
 		F2B8BDB019ABCD3D002A493F /* NetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkController.m; sourceTree = "<group>"; };
 		F2B8BDB219ABCE26002A493F /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
 		F2B8BDB319ABCE26002A493F /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
+		F2B8BDB519ABD3A1002A493F /* MyRepoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRepoTableViewCell.h; sourceTree = "<group>"; };
+		F2B8BDB619ABD3A1002A493F /* MyRepoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRepoTableViewCell.m; sourceTree = "<group>"; };
+		F2B8BDB819ABD3B5002A493F /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
+		F2B8BDB919ABD3B5002A493F /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
+		F2B8BDBB19ABD3DE002A493F /* MyFollowerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFollowerCollectionViewCell.h; sourceTree = "<group>"; };
+		F2B8BDBC19ABD3DE002A493F /* MyFollowerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFollowerCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +153,12 @@
 			isa = PBXGroup;
 			children = (
 				F2B8BD8619ABC4FC002A493F /* Main.storyboard */,
+				F2B8BDB519ABD3A1002A493F /* MyRepoTableViewCell.h */,
+				F2B8BDB619ABD3A1002A493F /* MyRepoTableViewCell.m */,
+				F2B8BDBB19ABD3DE002A493F /* MyFollowerCollectionViewCell.h */,
+				F2B8BDBC19ABD3DE002A493F /* MyFollowerCollectionViewCell.m */,
+				F2B8BDB819ABD3B5002A493F /* SearchTableViewCell.h */,
+				F2B8BDB919ABD3B5002A493F /* SearchTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -267,9 +282,12 @@
 				F2B8BDAB19ABC981002A493F /* MyFollowersViewController.m in Sources */,
 				F2B8BDA819ABC959002A493F /* MyReposViewController.m in Sources */,
 				F2B8BDAE19ABC98E002A493F /* SearchViewController.m in Sources */,
+				F2B8BDBD19ABD3DE002A493F /* MyFollowerCollectionViewCell.m in Sources */,
 				F2B8BD8219ABC4FC002A493F /* AppDelegate.m in Sources */,
+				F2B8BDBA19ABD3B5002A493F /* SearchTableViewCell.m in Sources */,
 				F2B8BDB119ABCD3D002A493F /* NetworkController.m in Sources */,
 				F2B8BD7F19ABC4FC002A493F /* main.m in Sources */,
+				F2B8BDB719ABD3A1002A493F /* MyRepoTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

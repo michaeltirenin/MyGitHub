@@ -61,14 +61,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RepoCell" id="9kC-Om-Sgw">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RepoCell" textLabel="Sk9-ne-vRm" style="IBUITableViewCellStyleDefault" id="9kC-Om-Sgw" customClass="MyRepoTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9kC-Om-Sgw" id="gcZ-jf-FXS">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sk9-ne-vRm">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="l6G-7i-dNR" id="YQb-wv-cn3"/>
+                                    <outlet property="delegate" destination="l6G-7i-dNR" id="0hD-NO-vfe"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -82,6 +94,9 @@
                     <navigationItem key="navigationItem" id="FQe-dc-pdW">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="riX-HZ-XWp"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="xmK-sx-FwC" id="qRl-8h-x5N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2BQ-1l-NM3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,14 +127,26 @@
                                     </scopeButtonTitles>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchCell" id="PdO-6C-3Dy">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchCell" textLabel="3ek-w7-XVG" style="IBUITableViewCellStyleDefault" id="PdO-6C-3Dy" customClass="SearchTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PdO-6C-3Dy" id="tXH-nB-3YS">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3ek-w7-XVG">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZRs-8P-B0f" id="hlI-rX-Dkz"/>
+                                    <outlet property="delegate" destination="ZRs-8P-B0f" id="Gas-Hi-wuh"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -132,6 +159,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="azo-kS-SYc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBarOutlet" destination="hPJ-XQ-9KI" id="v8H-6K-Bxn"/>
+                        <outlet property="tableView" destination="hPJ-XQ-9KI" id="rDw-rB-RAH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jii-Gm-Ht5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

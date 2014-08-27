@@ -133,8 +133,8 @@
         Repository *repositories = [[Repository alloc] initWithDict:resultsDict];
         [results addObject:repositories];
     }
-    return nil;
-//    return results;
+//    return nil;
+    return results;
 }
 
 // network fetch
@@ -143,7 +143,9 @@
     
     NSString *apiDomain = @"https://api.github.com";
     NSString *repoEndpoint = @"/search/repositories?q=";
-    NSString *urlString = [apiDomain stringByAppendingString:repoEndpoint];
+    NSString *urlString = [[apiDomain stringByAppendingString:repoEndpoint]stringByAppendingString:searchTerm];
+    
+    NSLog(@"%@", urlString);
 
     // set up URL
     NSURL *url = [[NSURL alloc] initWithString:urlString];

@@ -51,6 +51,11 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -79,6 +84,7 @@
     NSLog(@"searchbar clicked");
     
     [NetworkController fetchReposForSearchTerm:self.searchTerm withCallback:^(Repository *repositories, NSString *errorDescription) {
+        
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             self.searchResults = repositories;
             [self.tableView reloadData];

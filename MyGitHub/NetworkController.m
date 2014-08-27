@@ -115,15 +115,17 @@
         }
         
         NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        
+        
     }] resume]; // 2. another way to call the resume (of the task) -- instead of "[task resume]"
 }
 
 // parse
-+(Repository *)parseSuccessfulResponse:(NSData *)responseData {
++(NSArray *)parseSuccessfulResponse:(NSData *)responseData {
     
     NSMutableArray *results = [[NSMutableArray alloc] init];
     
-    NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
+    NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
     
     NSArray *items = responseDict[@"items"];
     NSDictionary *resultsDict = [[NSDictionary alloc] init];
@@ -169,7 +171,6 @@
 //            int code = [httpResponse statusCode];
             if ([response isKindOfClass: [NSHTTPURLResponse class]]) {
                 NSInteger statusCode = [(NSHTTPURLResponse *) response statusCode];
-            
             
                 switch (statusCode) {
                     case 200: NSLog(@"[Status 200] OK: HTTP request successful");

@@ -118,7 +118,7 @@
                                 <rect key="frame" x="0.0" y="45" width="600" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchCell" textLabel="3ek-w7-XVG" detailTextLabel="TFO-Q2-mYv" style="IBUITableViewCellStyleSubtitle" id="PdO-6C-3Dy" customClass="SearchTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchCell" textLabel="3ek-w7-XVG" detailTextLabel="TFO-Q2-mYv" style="IBUITableViewCellStyleSubtitle" id="PdO-6C-3Dy">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PdO-6C-3Dy" id="tXH-nB-3YS">
@@ -172,7 +172,7 @@
                     <navigationItem key="navigationItem" id="azo-kS-SYc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="searchBarOutlet" destination="hPJ-XQ-9KI" id="v8H-6K-Bxn"/>
+                        <outlet property="searchBar" destination="cyI-EY-l6G" id="U2w-ce-7MU"/>
                         <outlet property="tableView" destination="hPJ-XQ-9KI" id="rDw-rB-RAH"/>
                     </connections>
                 </viewController>

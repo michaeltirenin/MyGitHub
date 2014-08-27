@@ -26,7 +26,7 @@
 @property (strong, nonatomic) NSArray *searchResults;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UITableView *searchBarOutlet;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -35,10 +35,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
+//    self.tableView.dataSource = self;
+//    self.tableView.delegate = self;
     
-    self.searchBarOutlet.delegate = self;
+    self.searchBar.delegate = self;
     
     self.navigationItem.title = @"Search GitHub";
 }
@@ -81,6 +81,7 @@
     [NetworkController fetchReposForSearchTerm:self.searchTerm withCallback:^(Repository *repositories, NSString *errorDescription) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             self.searchResults = repositories;
+            [self.tableView reloadData];
         }];
     }];
 //    self.networkController.fetchQuestionsForSearchTerm(searchTerm, callback: {(questions: [Question]?, errorDescription: String?) -> Void in

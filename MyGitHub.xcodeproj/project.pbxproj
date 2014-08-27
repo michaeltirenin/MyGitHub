@@ -21,6 +21,7 @@
 		F2B8BDB719ABD3A1002A493F /* MyRepoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDB619ABD3A1002A493F /* MyRepoTableViewCell.m */; };
 		F2B8BDBA19ABD3B5002A493F /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDB919ABD3B5002A493F /* SearchTableViewCell.m */; };
 		F2B8BDBD19ABD3DE002A493F /* MyFollowerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDBC19ABD3DE002A493F /* MyFollowerCollectionViewCell.m */; };
+		F2B8BDF519AD3D15002A493F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BDF419AD3D15002A493F /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		F2B8BDB919ABD3B5002A493F /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
 		F2B8BDBB19ABD3DE002A493F /* MyFollowerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFollowerCollectionViewCell.h; sourceTree = "<group>"; };
 		F2B8BDBC19ABD3DE002A493F /* MyFollowerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFollowerCollectionViewCell.m; sourceTree = "<group>"; };
+		F2B8BDF319AD3D15002A493F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		F2B8BDF419AD3D15002A493F /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 			children = (
 				F2B8BDB219ABCE26002A493F /* Repository.h */,
 				F2B8BDB319ABCE26002A493F /* Repository.m */,
+				F2B8BDF319AD3D15002A493F /* Constants.h */,
+				F2B8BDF419AD3D15002A493F /* Constants.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -168,12 +173,12 @@
 			children = (
 				F2B8BDAF19ABCD3D002A493F /* NetworkController.h */,
 				F2B8BDB019ABCD3D002A493F /* NetworkController.m */,
+				F2B8BDAC19ABC98E002A493F /* SearchViewController.h */,
+				F2B8BDAD19ABC98E002A493F /* SearchViewController.m */,
 				F2B8BDA619ABC959002A493F /* MyReposViewController.h */,
 				F2B8BDA719ABC959002A493F /* MyReposViewController.m */,
 				F2B8BDA919ABC981002A493F /* MyFollowersViewController.h */,
 				F2B8BDAA19ABC981002A493F /* MyFollowersViewController.m */,
-				F2B8BDAC19ABC98E002A493F /* SearchViewController.h */,
-				F2B8BDAD19ABC98E002A493F /* SearchViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2B8BDF519AD3D15002A493F /* Constants.m in Sources */,
 				F2B8BDB419ABCE26002A493F /* Repository.m in Sources */,
 				F2B8BDAB19ABC981002A493F /* MyFollowersViewController.m in Sources */,
 				F2B8BDA819ABC959002A493F /* MyReposViewController.m in Sources */,

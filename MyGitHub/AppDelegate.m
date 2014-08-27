@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "NetworkController.h"
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) NetworkController *networkController;
 
 @end
 
@@ -16,7 +19,16 @@
             
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    self.networkController = [[NetworkController alloc] init];
+    
+    return YES;
+}
+
+//oauth
+// this methods handles anytime our app is opened via another app
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    [self.networkController handleCallBackURL:url];
     return YES;
 }
 

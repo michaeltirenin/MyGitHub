@@ -4,19 +4,26 @@
 //
 //  Created by Michael Tirenin on 8/25/14.
 //  Copyright (c) 2014 Michael Tirenin. All rights reserved.
-//
+// https://api.github.com/search/repositories?q=tetris+language:assembly&sort=stars&order=desc
 
 #import "SearchViewController.h"
 #import "SearchTableViewCell.h"
 #import "Repository.h"
 #import "NetworkController.h"
+#import "Constants.h"
 
-@interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+//#define GITHUB_CLIENT_ID @"93cccb5372dc6d06fd30"
+//#define GITHUB_CLIENT_SECRET @"d063e58b1defb545c9317197a60c7f856c4c96e2"
+//#define GITHUB_CALLBACK_URI @"MyGitHub://git_callback"
+//#define GITHUB_OAUTH_URL @"https://github.com/login/oauth/authorize?client_id=%@&redirect_uri=%@&scope=%@"
 
-@property (weak, nonatomic) Repository *repositories;
-@property (weak, nonatomic) NetworkController *networkController;
+@interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, NSURLSessionDataDelegate>
+
+//@property (weak, nonatomic) Repository *repositories;
+//@property (weak, nonatomic) NetworkController *networkController;
 
 @property (weak, nonatomic) NSString *searchTerm;
+@property (strong, nonatomic) NSArray *searchResults;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITableView *searchBarOutlet;
@@ -36,20 +43,31 @@
     self.navigationItem.title = @"Search GitHub";
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    NSString *urlString = [NSString stringWithFormat:kGitHubOAuthURL,kGitHubClientID,kGitHubCallbackURI,@"user,repo"];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 2;
+    return self.searchResults.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    SearchTableViewCell *searchCell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
+    UITableViewCell *searchCell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
     
-    searchCell.textLabel.text = @"test";
+    Repository *searchResult = self.searchResults[indexPath.row];
+    
+    searchCell.textLabel.text = searchResult.repoName;
+    searchCell.detailTextLabel.text = searchResult.repoDescription;
     
     return searchCell;
 }
@@ -60,6 +78,27 @@
     
     NSLog(@"searchbar clicked");
     
+    [NetworkController fetchReposForSearchTerm:self.searchTerm withCallback:^(Repository *repositories, NSString *errorDescription) {
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            self.searchResults = repositories;
+        }];
+    }];
+//    self.networkController.fetchQuestionsForSearchTerm(searchTerm, callback: {(questions: [Question]?, errorDescription: String?) -> Void in
+//        
+//        //            if errorDescription // how it was written for XCode 6 Beta 4
+//        if (errorDescription != nil) {
+//            // alert user of error
+//            println("error")
+//        } else {
+//            // put back on main thread
+//            NSOperationQueue.mainQueue().addOperationWithBlock( {() -> Void in
+//                self.questions = questions
+//                self.tableView.reloadData()
+//                //                    println(self.questions!.count)
+//            })
+//        }
+//    })
+    [searchBar resignFirstResponder]; //removes keyboard
     
 }
 

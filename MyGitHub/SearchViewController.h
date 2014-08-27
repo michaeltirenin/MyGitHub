@@ -10,7 +10,4 @@
 
 @interface SearchViewController : UIViewController
 
-
-
-
 @end

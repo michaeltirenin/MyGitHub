@@ -61,7 +61,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RepoCell" textLabel="Sk9-ne-vRm" style="IBUITableViewCellStyleDefault" id="9kC-Om-Sgw" customClass="MyRepoTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RepoCell" textLabel="Sk9-ne-vRm" style="IBUITableViewCellStyleDefault" id="9kC-Om-Sgw">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9kC-Om-Sgw" id="gcZ-jf-FXS">
@@ -115,19 +115,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hPJ-XQ-9KI">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="45" width="600" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search GitHub" id="cyI-EY-l6G">
-                                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <scopeButtonTitles>
-                                        <string>Title</string>
-                                        <string>Title</string>
-                                    </scopeButtonTitles>
-                                </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchCell" textLabel="3ek-w7-XVG" style="IBUITableViewCellStyleDefault" id="PdO-6C-3Dy" customClass="SearchTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchCell" textLabel="3ek-w7-XVG" detailTextLabel="TFO-Q2-mYv" style="IBUITableViewCellStyleSubtitle" id="PdO-6C-3Dy" customClass="SearchTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PdO-6C-3Dy" id="tXH-nB-3YS">
@@ -136,6 +127,12 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3ek-w7-XVG">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TFO-Q2-mYv">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -148,13 +145,28 @@
                                     <outlet property="delegate" destination="ZRs-8P-B0f" id="Gas-Hi-wuh"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" placeholder="Search GitHub" translatesAutoresizingMaskIntoConstraints="NO" id="cyI-EY-l6G">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Ba4-KN-tjg"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hPJ-XQ-9KI" firstAttribute="leading" secondItem="kCn-0y-ObF" secondAttribute="leading" id="Dl3-W9-0dC"/>
                             <constraint firstAttribute="trailing" secondItem="hPJ-XQ-9KI" secondAttribute="trailing" id="Hl1-1M-pak"/>
-                            <constraint firstItem="hPJ-XQ-9KI" firstAttribute="top" secondItem="kCn-0y-ObF" secondAttribute="top" id="Ypm-TU-sUK"/>
+                            <constraint firstAttribute="centerX" secondItem="cyI-EY-l6G" secondAttribute="centerX" id="NTK-l5-gmZ"/>
+                            <constraint firstItem="cyI-EY-l6G" firstAttribute="leading" secondItem="kCn-0y-ObF" secondAttribute="leading" id="OgJ-PD-KeU"/>
+                            <constraint firstItem="hPJ-XQ-9KI" firstAttribute="top" secondItem="kCn-0y-ObF" secondAttribute="top" constant="45" id="Ypm-TU-sUK"/>
+                            <constraint firstAttribute="trailing" secondItem="cyI-EY-l6G" secondAttribute="trailing" id="bcb-Tg-J8I"/>
                             <constraint firstItem="1qb-Yo-H7E" firstAttribute="top" secondItem="hPJ-XQ-9KI" secondAttribute="bottom" id="nSw-jQ-yQ5"/>
+                            <constraint firstItem="cyI-EY-l6G" firstAttribute="top" secondItem="QHl-qT-uTf" secondAttribute="bottom" id="rsv-ia-X2M"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="azo-kS-SYc"/>
@@ -179,14 +191,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="3wT-v5-s9V" kind="relationship" relationship="viewControllers" id="5TE-ea-rfa"/>
                         <segue destination="fXg-oh-uwp" kind="relationship" relationship="viewControllers" id="Pp2-A4-L8m"/>
                         <segue destination="0Fn-f5-HMI" kind="relationship" relationship="viewControllers" id="oq8-wR-ZnI"/>
-                        <segue destination="3wT-v5-s9V" kind="relationship" relationship="viewControllers" id="5TE-ea-rfa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pfq-aI-q5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="79" y="72"/>
+            <point key="canvasLocation" x="39" y="78"/>
         </scene>
         <!--My Followers-->
         <scene sceneID="jfA-dO-pKb">
@@ -226,11 +238,11 @@
             </objects>
             <point key="canvasLocation" x="-554" y="830"/>
         </scene>
-        <!--Search-->
+        <!--Navigation Controller-->
         <scene sceneID="Dfm-ZQ-yMX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3wT-v5-s9V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="Ul2-KD-X04"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="Ul2-KD-X04"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DEP-4R-uGB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

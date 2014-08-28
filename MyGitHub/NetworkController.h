@@ -12,11 +12,10 @@
 @interface NetworkController : NSObject
 
 // func parseSuccessfulResponse(responseData: NSData) -> [Question] { //swift
-+(Repository *)parseSuccessfulResponse:(NSData *)responseData;
++(NSArray *)parseSuccessfulResponse:(NSData *)responseData withScope:(NSString *)scope;
 
 // func fetchQuestionsForSearchTerm(searchTerm : String, callback: (questions: [Question]?, errorDescription: String?) -> Void) { //swift
-+(void)fetchReposForSearchTerm:(NSString *)searchTerm withCallback:(void(^)(Repository *repositories, NSString *errorDescription))callback;
-
++(void)fetchReposForSearchTerm:(NSString *)searchTerm withScope:(NSString *)scope withCallback:(void(^)(NSArray *repositories, NSString *errorDescription))callback;
 //oauth
 -(void)handleCallBackURL:(NSURL *)url;
 

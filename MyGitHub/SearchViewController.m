@@ -8,6 +8,8 @@
 
 #import "SearchViewController.h"
 #import "Repository.h"
+#import "User.h"
+#import "Code.h"
 #import "NetworkController.h"
 #import "Constants.h"
 #import "WebViewController.h"
@@ -61,10 +63,19 @@
     
     UITableViewCell *searchCell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
     
-    Repository *searchResult = self.searchResults[indexPath.row];
-    
-    searchCell.textLabel.text = searchResult.repoName;
-    searchCell.detailTextLabel.text = searchResult.repoDescription;
+    if (self.searchBar.selectedScopeButtonIndex == 0) {
+        Repository *searchResult = self.searchResults[indexPath.row];
+        searchCell.textLabel.text = searchResult.repoName;
+        searchCell.detailTextLabel.text = searchResult.repoDescription;
+    } else if (self.searchBar.selectedScopeButtonIndex == 1) {
+        User *searchResult = self.searchResults[indexPath.row];
+        searchCell.textLabel.text = searchResult.userName;
+        searchCell.detailTextLabel.text = searchResult.userRepoURL;
+    } else if (self.searchBar.selectedScopeButtonIndex == 2) {
+        Code *searchResult = self.searchResults[indexPath.row];
+        searchCell.textLabel.text = searchResult.codeName;
+        searchCell.detailTextLabel.text = searchResult.codeURL;
+    }
     
     return searchCell;
 }
@@ -75,29 +86,34 @@
     
     NSLog(@"searchbar clicked");
     
-    [NetworkController fetchReposForSearchTerm:self.searchTerm withCallback:^(Repository *repositories, NSString *errorDescription) {
+    if (self.searchBar.selectedScopeButtonIndex == 0) {
+//        NSString *repositories = @"repositories";
+        [NetworkController fetchReposForSearchTerm:self.searchTerm withScope:@"repositories" withCallback:^(NSArray *repositories, NSString *errorDescription) {
         
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            self.searchResults = repositories;
-            [self.tableView reloadData];
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                self.searchResults = repositories;
+                [self.tableView reloadData];
+            }];
         }];
-    }];
-    //swift example
-//    self.networkController.fetchQuestionsForSearchTerm(searchTerm, callback: {(questions: [Question]?, errorDescription: String?) -> Void in
-//        
-//        //            if errorDescription // how it was written for XCode 6 Beta 4
-//        if (errorDescription != nil) {
-//            // alert user of error
-//            println("error")
-//        } else {
-//            // put back on main thread
-//            NSOperationQueue.mainQueue().addOperationWithBlock( {() -> Void in
-//                self.questions = questions
-//                self.tableView.reloadData()
-//                //                    println(self.questions!.count)
-//            })
-//        }
-//    })
+    } else if (self.searchBar.selectedScopeButtonIndex == 1) {
+
+        [NetworkController fetchReposForSearchTerm:self.searchTerm withScope:@"users" withCallback:^(NSArray *repositories, NSString *errorDescription) {
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                self.searchResults = repositories;
+                [self.tableView reloadData];
+            }];
+        }];
+    } else if (self.searchBar.selectedScopeButtonIndex == 2) {
+
+        [NetworkController fetchReposForSearchTerm:self.searchTerm withScope:@"code" withCallback:^(NSArray *repositories, NSString *errorDescription) {
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                self.searchResults = repositories;
+                [self.tableView reloadData];
+            }];
+        }];
+    }
     [searchBar resignFirstResponder]; //removes keyboard
 }
 
@@ -105,8 +121,16 @@
     if ([[segue identifier] isEqualToString:@"ToWebView"]) {
         WebViewController *webViewVC = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Repository *repository = [self.searchResults objectAtIndex:indexPath.row];
-        webViewVC.repository = repository;
+        if (self.searchBar.selectedScopeButtonIndex == 0) {
+            Repository *repository = [self.searchResults objectAtIndex:indexPath.row];
+            webViewVC.repository = repository;
+        } else if (self.searchBar.selectedScopeButtonIndex == 1) {
+            User *repository = [self.searchResults objectAtIndex:indexPath.row];
+            webViewVC.userRepository = repository;
+        } else if (self.searchBar.selectedScopeButtonIndex == 2) {
+            Code *repository = [self.searchResults objectAtIndex:indexPath.row];
+            webViewVC.codeRepository = repository;
+        }
     }
 }
 

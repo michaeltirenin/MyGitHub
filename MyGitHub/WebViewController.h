@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Repository.h"
+#import "User.h"
+#import "Code.h"
 
 @interface WebViewController : UIViewController
 
 @property (strong, nonatomic) Repository *repository;
+@property (strong, nonatomic) User *userRepository;
+@property (strong, nonatomic) Code *codeRepository;
 
 @end

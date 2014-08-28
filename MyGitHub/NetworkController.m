@@ -8,6 +8,8 @@
 
 #import "NetworkController.h"
 #import "Repository.h"
+#import "User.h"
+#import "Code.h"
 #import "Constants.h"
 
 @interface NetworkController()
@@ -121,7 +123,7 @@
 }
 
 // parse
-+(NSArray *)parseSuccessfulResponse:(NSData *)responseData {
++(NSArray *)parseSuccessfulResponse:(NSData *)responseData withScope:(NSString *)scope {
     
     NSMutableArray *results = [[NSMutableArray alloc] init];
     
@@ -131,9 +133,16 @@
     NSDictionary *resultsDict = [[NSDictionary alloc] init];
     
     for (resultsDict in items) {
-        
-        Repository *repositories = [[Repository alloc] initWithDict:resultsDict];
-        [results addObject:repositories];
+        if ([scope isEqualToString:@"repositories"]) {
+             Repository *repositories = [[Repository alloc] initWithDict:resultsDict];
+             [results addObject:repositories];
+        } else if ([scope isEqualToString:@"users"]) {
+            User *users = [[User alloc] initWithDict:resultsDict];
+            [results addObject:users];
+        } else if ([scope isEqualToString:@"code"]) {
+            Code *code = [[Code alloc] initWithDict:resultsDict];
+            [results addObject:code];
+        }
     }
 //    return nil;
     return results;
@@ -141,11 +150,16 @@
 
 // network fetch
 // func fetchQuestionsForSearchTerm(searchTerm : String, callback: (questions: [Question]?, errorDescription: String?) -> Void) {
-+(void)fetchReposForSearchTerm:(NSString *)searchTerm withCallback:(void(^)(Repository *repositories, NSString *errorDescription))callback {
++(void)fetchReposForSearchTerm:(NSString *)searchTerm withScope:(NSString *)scope withCallback:(void(^)(NSArray *repositories, NSString *errorDescription))callback {
+    //https://api.github.com/search/repositories?q=tetris
+    //https://api.github.com/search/code?q=addClass+in:file+language:js+repo:jquery/jquery
+    //https://api.github.com/search/users?q=tom
     
-    NSString *apiDomain = @"https://api.github.com";
-    NSString *repoEndpoint = @"/search/repositories?q=";
-    NSString *urlString = [[apiDomain stringByAppendingString:repoEndpoint]stringByAppendingString:searchTerm];
+    NSString *apiDomain = @"https://api.github.com/search/";
+    NSString *scopeTerm = (@"%@", scope);
+//    NSString *repoEndpoint = @"repositories?q=";
+    
+    NSString *urlString = [[[apiDomain stringByAppendingString:scopeTerm]stringByAppendingString:@"?q="]stringByAppendingString:searchTerm];
     
     NSLog(@"%@", urlString);
 
@@ -175,7 +189,7 @@
                 switch (statusCode) {
                     case 200: NSLog(@"[Status 200] OK: HTTP request successful");
 //                      var questions = self.parseSuccessfulResponse(data);
-                        callback([NetworkController parseSuccessfulResponse:data], nil);
+                        callback([NetworkController parseSuccessfulResponse:data withScope:scope], nil);
                         //callback(questions: questions, errorDescription: nil);
 //                        callback(repositories, nil);
                         break;

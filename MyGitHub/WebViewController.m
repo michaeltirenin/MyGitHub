@@ -20,12 +20,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSURL *url = [[NSURL alloc] initWithString:self.repository.repoURL];
-    NSLog(@"THIS IS THE URL: %@",url);
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
-    [self.webView loadRequest:request];
+    if (self.repository.repoURL != nil) {
+        NSURL *url = [[NSURL alloc] initWithString:self.repository.repoURL];
+        NSLog(@"THIS IS THE URL: %@",url);
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.webView loadRequest:request];
+
+    } else if (self.userRepository.userRepoURL != nil) {
+        NSURL *url = [[NSURL alloc] initWithString:self.userRepository.userRepoURL];
+        NSLog(@"THIS IS THE URL: %@",url);
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.webView loadRequest:request];
+
+    } else if (self.codeRepository.codeURL != nil) {
+        NSURL *url = [[NSURL alloc] initWithString:self.codeRepository.codeURL];
+        NSLog(@"THIS IS THE URL: %@",url);
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.webView loadRequest:request];
+    }
+
     self.webView.delegate = self;
      
     self.navigationItem.title = @"Web Link";

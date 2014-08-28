@@ -122,7 +122,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hPJ-XQ-9KI">
-                                <rect key="frame" x="0.0" y="45" width="600" height="506"/>
+                                <rect key="frame" x="0.0" y="89" width="600" height="462"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchCell" textLabel="3ek-w7-XVG" detailTextLabel="TFO-Q2-mYv" style="IBUITableViewCellStyleSubtitle" id="PdO-6C-3Dy">
@@ -155,34 +155,35 @@
                                     <outlet property="delegate" destination="ZRs-8P-B0f" id="Gas-Hi-wuh"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search GitHub" translatesAutoresizingMaskIntoConstraints="NO" id="cyI-EY-l6G">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <searchBar contentMode="redraw" misplaced="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h59-Lz-hgJ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="88"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Ba4-KN-tjg"/>
+                                    <constraint firstAttribute="height" constant="88" id="9ey-dn-kbf"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
+                                    <string>Repositories</string>
+                                    <string>Users</string>
+                                    <string>Code</string>
                                 </scopeButtonTitles>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="h59-Lz-hgJ" firstAttribute="top" secondItem="QHl-qT-uTf" secondAttribute="bottom" id="5cx-CD-Cws"/>
+                            <constraint firstAttribute="centerX" secondItem="h59-Lz-hgJ" secondAttribute="centerX" id="7KI-Qb-dru"/>
                             <constraint firstItem="hPJ-XQ-9KI" firstAttribute="leading" secondItem="kCn-0y-ObF" secondAttribute="leading" id="Dl3-W9-0dC"/>
+                            <constraint firstItem="h59-Lz-hgJ" firstAttribute="leading" secondItem="kCn-0y-ObF" secondAttribute="leading" id="Dsd-ni-AIS"/>
                             <constraint firstAttribute="trailing" secondItem="hPJ-XQ-9KI" secondAttribute="trailing" id="Hl1-1M-pak"/>
-                            <constraint firstAttribute="centerX" secondItem="cyI-EY-l6G" secondAttribute="centerX" id="NTK-l5-gmZ"/>
-                            <constraint firstItem="cyI-EY-l6G" firstAttribute="leading" secondItem="kCn-0y-ObF" secondAttribute="leading" id="OgJ-PD-KeU"/>
-                            <constraint firstItem="hPJ-XQ-9KI" firstAttribute="top" secondItem="kCn-0y-ObF" secondAttribute="top" constant="45" id="Ypm-TU-sUK"/>
-                            <constraint firstAttribute="trailing" secondItem="cyI-EY-l6G" secondAttribute="trailing" id="bcb-Tg-J8I"/>
+                            <constraint firstItem="hPJ-XQ-9KI" firstAttribute="top" secondItem="kCn-0y-ObF" secondAttribute="top" constant="89" id="Ypm-TU-sUK"/>
                             <constraint firstItem="1qb-Yo-H7E" firstAttribute="top" secondItem="hPJ-XQ-9KI" secondAttribute="bottom" id="nSw-jQ-yQ5"/>
-                            <constraint firstItem="cyI-EY-l6G" firstAttribute="top" secondItem="QHl-qT-uTf" secondAttribute="bottom" id="rsv-ia-X2M"/>
+                            <constraint firstAttribute="trailing" secondItem="h59-Lz-hgJ" secondAttribute="trailing" id="nzg-s0-mQP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="azo-kS-SYc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="searchBar" destination="cyI-EY-l6G" id="U2w-ce-7MU"/>
+                        <outlet property="searchBar" destination="h59-Lz-hgJ" id="QSj-FK-DXs"/>
                         <outlet property="tableView" destination="hPJ-XQ-9KI" id="rDw-rB-RAH"/>
                     </connections>
                 </viewController>

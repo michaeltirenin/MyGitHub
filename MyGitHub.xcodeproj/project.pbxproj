@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F23D676619ADC7750004925F /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23D676519ADC7750004925F /* WebViewController.m */; };
 		F23D679B19AE749A0004925F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F23D679A19AE749A0004925F /* User.m */; };
+		F2AD196D19AEC2B3006A5588 /* Code.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AD196C19AEC2B3006A5588 /* Code.m */; };
 		F2B8BD7F19ABC4FC002A493F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BD7E19ABC4FC002A493F /* main.m */; };
 		F2B8BD8219ABC4FC002A493F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BD8119ABC4FC002A493F /* AppDelegate.m */; };
 		F2B8BD8819ABC4FC002A493F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B8BD8619ABC4FC002A493F /* Main.storyboard */; };
@@ -41,6 +42,8 @@
 		F23D676519ADC7750004925F /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		F23D679919AE749A0004925F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		F23D679A19AE749A0004925F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		F2AD196B19AEC2B3006A5588 /* Code.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Code.h; sourceTree = "<group>"; };
+		F2AD196C19AEC2B3006A5588 /* Code.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Code.m; sourceTree = "<group>"; };
 		F2B8BD7919ABC4FC002A493F /* MyGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B8BD7D19ABC4FC002A493F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2B8BD7E19ABC4FC002A493F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				F2B8BDB319ABCE26002A493F /* Repository.m */,
 				F23D679919AE749A0004925F /* User.h */,
 				F23D679A19AE749A0004925F /* User.m */,
+				F2AD196B19AEC2B3006A5588 /* Code.h */,
+				F2AD196C19AEC2B3006A5588 /* Code.m */,
 				F2B8BDF319AD3D15002A493F /* Constants.h */,
 				F2B8BDF419AD3D15002A493F /* Constants.m */,
 			);
@@ -299,6 +304,7 @@
 				F2B8BDAB19ABC981002A493F /* MyFollowersViewController.m in Sources */,
 				F2B8BDA819ABC959002A493F /* MyReposViewController.m in Sources */,
 				F2B8BDAE19ABC98E002A493F /* SearchViewController.m in Sources */,
+				F2AD196D19AEC2B3006A5588 /* Code.m in Sources */,
 				F2B8BDBD19ABD3DE002A493F /* MyFollowerCollectionViewCell.m in Sources */,
 				F2B8BD8219ABC4FC002A493F /* AppDelegate.m in Sources */,
 				F23D676619ADC7750004925F /* WebViewController.m in Sources */,

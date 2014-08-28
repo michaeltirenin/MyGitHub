@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F23D676619ADC7750004925F /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23D676519ADC7750004925F /* WebViewController.m */; };
 		F23D679B19AE749A0004925F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F23D679A19AE749A0004925F /* User.m */; };
+		F251386019AFDD560033B183 /* SearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F251385F19AFDD560033B183 /* SearchCollectionViewCell.m */; };
 		F2AD196D19AEC2B3006A5588 /* Code.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AD196C19AEC2B3006A5588 /* Code.m */; };
 		F2B8BD7F19ABC4FC002A493F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BD7E19ABC4FC002A493F /* main.m */; };
 		F2B8BD8219ABC4FC002A493F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B8BD8119ABC4FC002A493F /* AppDelegate.m */; };
@@ -42,6 +43,8 @@
 		F23D676519ADC7750004925F /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		F23D679919AE749A0004925F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		F23D679A19AE749A0004925F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		F251385E19AFDD560033B183 /* SearchCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCollectionViewCell.h; sourceTree = "<group>"; };
+		F251385F19AFDD560033B183 /* SearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCollectionViewCell.m; sourceTree = "<group>"; };
 		F2AD196B19AEC2B3006A5588 /* Code.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Code.h; sourceTree = "<group>"; };
 		F2AD196C19AEC2B3006A5588 /* Code.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Code.m; sourceTree = "<group>"; };
 		F2B8BD7919ABC4FC002A493F /* MyGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +180,8 @@
 				F2B8BDBC19ABD3DE002A493F /* MyFollowerCollectionViewCell.m */,
 				F2B8BDB819ABD3B5002A493F /* SearchTableViewCell.h */,
 				F2B8BDB919ABD3B5002A493F /* SearchTableViewCell.m */,
+				F251385E19AFDD560033B183 /* SearchCollectionViewCell.h */,
+				F251385F19AFDD560033B183 /* SearchCollectionViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				F23D676619ADC7750004925F /* WebViewController.m in Sources */,
 				F2B8BDBA19ABD3B5002A493F /* SearchTableViewCell.m in Sources */,
 				F2B8BDB119ABCD3D002A493F /* NetworkController.m in Sources */,
+				F251386019AFDD560033B183 /* SearchCollectionViewCell.m in Sources */,
 				F2B8BD7F19ABC4FC002A493F /* main.m in Sources */,
 				F2B8BDB719ABD3A1002A493F /* MyRepoTableViewCell.m in Sources */,
 			);

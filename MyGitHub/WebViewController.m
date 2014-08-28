@@ -9,10 +9,11 @@
 #import "WebViewController.h"
 #import "Repository.h"
 #import "SearchViewController.h"
+#import <WebKit/WebKit.h>
 
 @interface WebViewController () <UIWebViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIWebView *webViewOutlet;
 
 @end
 
@@ -20,28 +21,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    // using WebKit instead of UIWebView
+//    WKWebView *webView = [[WKWebView alloc] initWithFrame:_webViewOutlet.frame]; // using the frame already set up w UIWebView (storyboard)
+//    [webView removeFromSuperview];
+//    
+//    [self.view addSubview:webView];
+    
     if (self.repository.repoURL != nil) {
         NSURL *url = [[NSURL alloc] initWithString:self.repository.repoURL];
         NSLog(@"THIS IS THE URL: %@",url);
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [self.webView loadRequest:request];
+        [self.webViewOutlet loadRequest:request]; //use webView here if going w WebKit
 
     } else if (self.userRepository.userRepoURL != nil) {
         NSURL *url = [[NSURL alloc] initWithString:self.userRepository.userRepoURL];
         NSLog(@"THIS IS THE URL: %@",url);
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [self.webView loadRequest:request];
+        [self.webViewOutlet loadRequest:request];
 
-    } else if (self.codeRepository.codeURL != nil) {
-        NSURL *url = [[NSURL alloc] initWithString:self.codeRepository.codeURL];
-        NSLog(@"THIS IS THE URL: %@",url);
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [self.webView loadRequest:request];
+//    } else if (self.codeRepository.codeURL != nil) {
+//        NSURL *url = [[NSURL alloc] initWithString:self.codeRepository.codeURL];
+//        NSLog(@"THIS IS THE URL: %@",url);
+//        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//        [self.webViewOutlet loadRequest:request];
     }
 
-    self.webView.delegate = self;
-     
+    self.webViewOutlet.delegate = self; // not necessary when using WebKit
+    
     self.navigationItem.title = @"Web Link";
 }
 
@@ -49,13 +56,13 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)webViewDidStartLoad:(UIWebView *)webView {
-    
-}
-
--(void)webViewDidFinishLoad:(UIWebView *)webView {
-    
-}
+//-(void)webViewDidStartLoad:(UIWebView *)webView {
+//    
+//}
+//
+//-(void)webViewDidFinishLoad:(UIWebView *)webView {
+//    
+//}
 
 /*
 #pragma mark - Navigation

@@ -9,7 +9,7 @@
 #import "NetworkController.h"
 #import "Repository.h"
 #import "User.h"
-#import "Code.h"
+//#import "Code.h"
 #import "Constants.h"
 
 @interface NetworkController()
@@ -139,9 +139,9 @@
         } else if ([scope isEqualToString:@"users"]) {
             User *users = [[User alloc] initWithDict:resultsDict];
             [results addObject:users];
-        } else if ([scope isEqualToString:@"code"]) {
-            Code *code = [[Code alloc] initWithDict:resultsDict];
-            [results addObject:code];
+//        } else if ([scope isEqualToString:@"code"]) {
+//            Code *code = [[Code alloc] initWithDict:resultsDict];
+//            [results addObject:code];
         }
     }
 //    return nil;

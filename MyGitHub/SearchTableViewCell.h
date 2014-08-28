@@ -10,4 +10,8 @@
 
 @interface SearchTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+
 @end

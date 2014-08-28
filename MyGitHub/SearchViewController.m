@@ -10,6 +10,7 @@
 #import "Repository.h"
 #import "User.h"
 #import "Code.h"
+#import "SearchTableViewCell.h"
 #import "NetworkController.h"
 #import "Constants.h"
 #import "WebViewController.h"
@@ -61,20 +62,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *searchCell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
+    SearchTableViewCell *searchCell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
     
     if (self.searchBar.selectedScopeButtonIndex == 0) {
         Repository *searchResult = self.searchResults[indexPath.row];
-        searchCell.textLabel.text = searchResult.repoName;
-        searchCell.detailTextLabel.text = searchResult.repoDescription;
+        searchCell.nameLabel.text = searchResult.repoName;
+        searchCell.descriptionLabel.text = searchResult.repoDescription;
+        searchCell.avatar.image = searchResult.repoAvatarImage;
     } else if (self.searchBar.selectedScopeButtonIndex == 1) {
         User *searchResult = self.searchResults[indexPath.row];
-        searchCell.textLabel.text = searchResult.userName;
-        searchCell.detailTextLabel.text = searchResult.userRepoURL;
+        searchCell.nameLabel.text = searchResult.userName;
+        searchCell.descriptionLabel.text = searchResult.userRepoURL;
+        searchCell.avatar.image = searchResult.userAvatarImage;
     } else if (self.searchBar.selectedScopeButtonIndex == 2) {
         Code *searchResult = self.searchResults[indexPath.row];
-        searchCell.textLabel.text = searchResult.codeName;
-        searchCell.detailTextLabel.text = searchResult.codeURL;
+        searchCell.nameLabel.text = searchResult.codeName;
+        searchCell.descriptionLabel.text = searchResult.codeURL;
     }
     
     return searchCell;
@@ -117,6 +120,7 @@
     [searchBar resignFirstResponder]; //removes keyboard
 }
 
+// clear table w scope button selection
 -(void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
     searchBar.text = @"";
     self.searchResults = nil;

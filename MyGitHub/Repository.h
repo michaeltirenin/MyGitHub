@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Repository : NSObject
 
 @property (strong, nonatomic) NSString *repoName; //"name"
 @property (strong, nonatomic) NSString *repoOwnerName; //"owner/"login"
 @property (strong, nonatomic) NSString *repoDescription; //"description"
-@property (strong, nonatomic) NSString *repoURL; //"owner"/"url
+@property (strong, nonatomic) NSString *repoURL; //"owner"/"url"
+@property (strong, nonatomic) NSString *repoAvatar; //"owner"/"avatar_url"
+@property (strong, nonatomic) UIImage *repoAvatarImage;
 
 -(instancetype)initWithDict:(NSDictionary *)itemDict;
 

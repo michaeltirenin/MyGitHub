@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface User : NSObject
 
 @property (strong, nonatomic) NSString *userName; //"login"
-@property (strong, nonatomic) NSString *userAvatarURL; //"avatar_url"
+@property (strong, nonatomic) NSString *userAvatar; //"avatar_url"
 @property (strong, nonatomic) NSString *userRepoURL; //"html_url"
+@property (strong, nonatomic) UIImage *userAvatarImage;
 
 
 -(instancetype)initWithDict:(NSDictionary *)itemDict;

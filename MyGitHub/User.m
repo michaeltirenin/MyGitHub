@@ -14,8 +14,13 @@
     
     if (self = [super init]) {
         self.userName = itemDict[@"login"];
-        self.userAvatarURL = itemDict[@"avatar_url"];
+        self.userAvatar = itemDict[@"avatar_url"];
         self.userRepoURL = itemDict[@"html_url"];
+        
+        NSURL *userAvatarURL = [NSURL URLWithString:self.userAvatar];
+        NSData *userAvatardata = [[NSData alloc] initWithContentsOfURL:userAvatarURL];
+        self.userAvatarImage = [UIImage imageWithData:userAvatardata];
+
     }
     return self;
 }

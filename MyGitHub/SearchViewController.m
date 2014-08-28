@@ -66,9 +66,9 @@
     
     if (self.searchBar.selectedScopeButtonIndex == 0) {
         Repository *searchResult = self.searchResults[indexPath.row];
-        searchCell.nameLabel.text = searchResult.repoName;
+        searchCell.nameLabel.text = [[[searchResult.repoName stringByAppendingString:@" ("]stringByAppendingString:searchResult.repolanguage]stringByAppendingString:@")"];
         searchCell.descriptionLabel.text = searchResult.repoDescription;
-        searchCell.avatar.image = searchResult.repoAvatarImage;
+//        searchCell.avatar.image = searchResult.repoAvatarImage;
     } else if (self.searchBar.selectedScopeButtonIndex == 1) {
         User *searchResult = self.searchResults[indexPath.row];
         searchCell.nameLabel.text = searchResult.userName;

@@ -22,6 +22,7 @@
         NSData *repoAvatardata = [[NSData alloc] initWithContentsOfURL:repoAvatarURL];
         self.repoAvatarImage = [UIImage imageWithData:repoAvatardata];
 //        self.repoAvatarImage = [UIImage imageWithData:[NSData dataWithContentsOfFile:[NSURL URLWithString:self.repoAvatar]]];
+        self.repolanguage = itemDict[@"language"];
     }
     return self;
 }

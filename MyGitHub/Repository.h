@@ -17,6 +17,8 @@
 @property (strong, nonatomic) NSString *repoURL; //"owner"/"url"
 @property (strong, nonatomic) NSString *repoAvatar; //"owner"/"avatar_url"
 @property (strong, nonatomic) UIImage *repoAvatarImage;
+@property (strong, nonatomic) NSString *repolanguage; //"language"
+
 
 -(instancetype)initWithDict:(NSDictionary *)itemDict;
 

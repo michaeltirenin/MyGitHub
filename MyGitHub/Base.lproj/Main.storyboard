@@ -155,7 +155,7 @@
                                     <outlet property="delegate" destination="ZRs-8P-B0f" id="Gas-Hi-wuh"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" misplaced="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h59-Lz-hgJ">
+                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Search GitHub" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h59-Lz-hgJ">
                                 <rect key="frame" x="0.0" y="64" width="600" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="9ey-dn-kbf"/>

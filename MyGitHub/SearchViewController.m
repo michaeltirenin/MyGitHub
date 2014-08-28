@@ -117,6 +117,12 @@
     [searchBar resignFirstResponder]; //removes keyboard
 }
 
+-(void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
+    searchBar.text = @"";
+    self.searchResults = nil;
+    [self.tableView reloadData];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ToWebView"]) {
         WebViewController *webViewVC = segue.destinationViewController;

@@ -14,11 +14,15 @@
     
     if (self = [super init]) {
         self.userName = itemDict[@"login"];
-        self.userAvatar = itemDict[@"avatar_url"];
+        if ([self.userName isEqual:[NSNull null]]) {
+            self.userName = @"n/a";
+        }
+        self.userAvatarURL = itemDict[@"avatar_url"];
         self.userRepoURL = itemDict[@"html_url"];
+        self.userFollowersURL = itemDict[@"followers_url"];
         
-        NSURL *userAvatarURL = [NSURL URLWithString:self.userAvatar];
-        NSData *userAvatardata = [[NSData alloc] initWithContentsOfURL:userAvatarURL];
+        NSURL *userAvatar_URL = [NSURL URLWithString:self.userAvatarURL];
+        NSData *userAvatardata = [[NSData alloc] initWithContentsOfURL:userAvatar_URL];
         self.userAvatarImage = [UIImage imageWithData:userAvatardata];
 
     }

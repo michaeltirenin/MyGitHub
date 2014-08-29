@@ -10,4 +10,7 @@
 
 @interface MyFollowerCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
 @end

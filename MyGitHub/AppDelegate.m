@@ -11,8 +11,6 @@
 
 @interface AppDelegate ()
 
-@property (strong, nonatomic) NetworkController *networkController;
-
 @end
 
 @implementation AppDelegate

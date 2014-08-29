@@ -58,10 +58,10 @@
     // length of the data we are posting
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     // tell it the type of data
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-type"];
     [request setHTTPBody:data];
     
-    NSURLSessionDataTask *postDataTask = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+   [[self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         // log error
         if (error) {
@@ -69,6 +69,7 @@
         } else {
             NSLog(@" %@", response);
             self.token = [self convertDataToToken:data];
+            [[NSUserDefaults standardUserDefaults]setObject:self.token forKey:kGitHubAuthToken]; // removes need to re-authorize
             NSLog(@"%@",self.token);
            
             // why are we calling this here again?
@@ -80,10 +81,9 @@
             
             self.session = [NSURLSession sessionWithConfiguration:configuration];
             
-            [self fetchUserRepos];
+            [self fetchUserReposAndFollowers];
         }
-    }];
-    [postDataTask resume];
+    }] resume];
 }
 
 -(NSString *)convertDataToToken:(NSData *)data {
@@ -105,21 +105,52 @@
     return tokenArray.lastObject;
 }
 
--(void)fetchUserRepos {
+-(void)fetchUserReposAndFollowers { // Brad and Jeff
     
     NSURL *repoURL = [[NSURL alloc] initWithString:@"https://api.github.com/user/repos"];
+    NSURL *followerURL = [[NSURL alloc] initWithString:@"https://api.github.com/user/followers"];
     [[self.session dataTaskWithURL:repoURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {  //1. another way to write this (without declaring it), then ...
+        if (error) {
+            NSLog(@"%@", error.localizedDescription);
+        } else {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            switch (httpResponse.statusCode) {
+                case 200: NSLog(@"[Status 200] OK: HTTP request successful");
+                    break;
+                case 400: NSLog(@"[Status 400] Bad: Bad request; check syntax");
+                    break;
+                case 401: NSLog(@"[Status 401] Unauthorized: Authentication was required but not provided");
+                    break;
+                case 403: NSLog(@"Status 403] Forbidden: Request was valid, but server refuses to respond");
+                    break;
+                case 404: NSLog(@"[Status 404] Not found: Requested resource not found");
+                    break;
+                case 429: NSLog(@"[Status 429] Too Many Requests: Rate limited");
+                    break;
+                default: NSLog(@"Sorry. Try again");
+                    break;
+            }
+            NSLog(@"%@", response);
+        }
+        NSArray *reposJson = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         
+        if (self.delegate && [self.delegate respondsToSelector:@selector(reposFinishedParsing:)]) {
+            [self.delegate reposFinishedParsing:reposJson];
+        }
+    }] resume]; // 2. another way to call the resume (of the task) -- instead of "[task resume]"
+    
+    [[self.session dataTaskWithURL:followerURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { 
         if (error) {
             NSLog(@"%@", error.localizedDescription);
         } else {
             NSLog(@"%@", response);
         }
+        NSArray *followersJson = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         
-        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        
-        
-    }] resume]; // 2. another way to call the resume (of the task) -- instead of "[task resume]"
+        if (self.delegate && [self.delegate respondsToSelector:@selector(followersFinishedParsing:)]) {
+            [self.delegate followersFinishedParsing:followersJson];
+        }
+    }] resume];
 }
 
 // parse
@@ -157,7 +188,6 @@
     
     NSString *apiDomain = @"https://api.github.com/search/";
     NSString *scopeTerm = (@"%@", scope);
-//    NSString *repoEndpoint = @"repositories?q=";
     
     NSString *urlString = [[[apiDomain stringByAppendingString:scopeTerm]stringByAppendingString:@"?q="]stringByAppendingString:searchTerm];
     
@@ -169,6 +199,7 @@
     // set up NSURLSession
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *fetchSession = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:nil delegateQueue:nil];
+//    NSURLSession *fetchSession = [NSURLSession sharedSession]; // what's the difference?
     
     // set up task (data task for JSON fetch)
     NSURLSessionDataTask *task = [fetchSession dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -223,5 +254,20 @@
     }];
     [task resume];
 }
+
+-(void)beginOAuth {
+    self.token = [[NSUserDefaults standardUserDefaults]objectForKey:kGitHubAuthToken];
+    if (!self.token) {
+        NSString *urlString = [NSString stringWithFormat:kGitHubOAuthURL, kGitHubClientID, kGitHubCallbackURI, @"user,repo"];
+        NSLog(@"%@", urlString);
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:urlString]];
+    } else {
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        [configuration setHTTPAdditionalHeaders:@{@"Authorization": [NSString stringWithFormat:@"token %@", self.token]}];
+        self.session = [NSURLSession sessionWithConfiguration:configuration];
+        [self fetchUserReposAndFollowers];
+    }
+}
+
 
 @end

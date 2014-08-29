@@ -17,33 +17,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="See-f6-iBi">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="See-f6-iBi">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wDF-eQ-n8f">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="65" height="82"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="12" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="den-8J-OjG">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FollowerCollectionCell" id="den-8J-OjG" customClass="MyFollowerCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="65" height="82"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iu1-Ve-CC9">
+                                                    <rect key="frame" x="0.0" y="64" width="65" height="19"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AML-op-WRA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="AML-op-WRA" firstAttribute="leading" secondItem="den-8J-OjG" secondAttribute="leading" id="74H-W5-G3A"/>
+                                            <constraint firstItem="AML-op-WRA" firstAttribute="top" secondItem="den-8J-OjG" secondAttribute="top" id="Fc0-xW-XZQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="AML-op-WRA" secondAttribute="trailing" id="dQb-Hk-1Dr"/>
+                                            <constraint firstAttribute="bottom" secondItem="AML-op-WRA" secondAttribute="bottom" constant="17" id="glZ-C7-WAm"/>
+                                        </constraints>
                                         <connections>
+                                            <outlet property="avatar" destination="AML-op-WRA" id="tGP-Zy-HqE"/>
+                                            <outlet property="nameLabel" destination="iu1-Ve-CC9" id="YOb-us-4JW"/>
                                             <segue destination="OyK-eg-XZA" kind="show" id="JUD-QD-3HQ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="6Us-gJ-9wI" id="iyI-2B-nGD"/>
+                                    <outlet property="delegate" destination="6Us-gJ-9wI" id="GpB-6N-RDy"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="See-f6-iBi" firstAttribute="top" secondItem="XhR-uC-HLU" secondAttribute="top" id="6hm-is-2vK"/>
+                            <constraint firstItem="I6I-28-W21" firstAttribute="top" secondItem="See-f6-iBi" secondAttribute="bottom" id="cRT-H9-k74"/>
+                            <constraint firstAttribute="trailing" secondItem="See-f6-iBi" secondAttribute="trailing" id="msb-uV-QQb"/>
+                            <constraint firstItem="See-f6-iBi" firstAttribute="leading" secondItem="XhR-uC-HLU" secondAttribute="leading" id="o2w-p8-zLm"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dv0-ue-Pir"/>
+                    <connections>
+                        <outlet property="collectionView" destination="See-f6-iBi" id="mvj-LA-TuF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHa-w3-czZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -378,6 +411,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vSf-PL-MuT"/>
+        <segue reference="JUD-QD-3HQ"/>
     </inferredMetricsTieBreakers>
 </document>

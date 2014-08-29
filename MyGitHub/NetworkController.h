@@ -9,6 +9,14 @@
 #import <Foundation/Foundation.h>
 //#import "Repository.h"
 
+@protocol NetworkControllerDelegate <NSObject> // Jeff's solution
+
+@optional
+-(void)reposFinishedParsing:(NSArray *)jsonArray;
+-(void)followersFinishedParsing:(NSArray *)jsonArray;
+
+@end
+
 @interface NetworkController : NSObject
 
 // func parseSuccessfulResponse(responseData: NSData) -> [Question] { //swift
@@ -18,5 +26,10 @@
 +(void)fetchReposForSearchTerm:(NSString *)searchTerm withScope:(NSString *)scope withCallback:(void(^)(NSArray *repositories, NSString *errorDescription))callback;
 //oauth
 -(void)handleCallBackURL:(NSURL *)url;
+
+-(void)fetchUserReposAndFollowers; // Jeff's solution
+-(void)beginOAuth; // Jeff's solution
+
+@property (nonatomic, weak) id<NetworkControllerDelegate> delegate; // Jeff's solution
 
 @end

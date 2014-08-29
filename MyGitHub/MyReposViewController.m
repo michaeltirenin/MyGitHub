@@ -8,10 +8,13 @@
 
 #import "MyReposViewController.h"
 #import "MyRepoTableViewCell.h"
+#import "AppDelegate.h"
 #import "Repository.h"
+#import "User.h"
 #import "NetworkController.h"
+#import "Constants.h"
 
-@interface MyReposViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MyReposViewController () <UITableViewDataSource, UITableViewDelegate, NetworkControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -22,12 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
+//    self.tableView.dataSource = self;
+//    self.tableView.delegate = self;
     
     self.navigationItem.title = @"My Repos";
-
-
 }
 
 - (void)didReceiveMemoryWarning {

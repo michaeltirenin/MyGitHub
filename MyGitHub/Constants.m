@@ -14,6 +14,7 @@ NSString *const kGitHubClientID = @"93cccb5372dc6d06fd30";
 NSString *const kGitHubClientSecret = @"d063e58b1defb545c9317197a60c7f856c4c96e2";
 NSString *const kGitHubCallbackURI = @"MyGitHub://git_callback";
 NSString *const kGitHubOAuthURL = @"https://github.com/login/oauth/authorize?client_id=%@&redirect_uri=%@&scope=%@";
+NSString *const kGitHubAuthToken = @"GithubToken";
 
 @implementation Constants
 

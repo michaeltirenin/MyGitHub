@@ -174,14 +174,14 @@
 			isa = PBXGroup;
 			children = (
 				F2B8BD8619ABC4FC002A493F /* Main.storyboard */,
-				F2B8BDB519ABD3A1002A493F /* MyRepoTableViewCell.h */,
-				F2B8BDB619ABD3A1002A493F /* MyRepoTableViewCell.m */,
-				F2B8BDBB19ABD3DE002A493F /* MyFollowerCollectionViewCell.h */,
-				F2B8BDBC19ABD3DE002A493F /* MyFollowerCollectionViewCell.m */,
 				F2B8BDB819ABD3B5002A493F /* SearchTableViewCell.h */,
 				F2B8BDB919ABD3B5002A493F /* SearchTableViewCell.m */,
 				F251385E19AFDD560033B183 /* SearchCollectionViewCell.h */,
 				F251385F19AFDD560033B183 /* SearchCollectionViewCell.m */,
+				F2B8BDB519ABD3A1002A493F /* MyRepoTableViewCell.h */,
+				F2B8BDB619ABD3A1002A493F /* MyRepoTableViewCell.m */,
+				F2B8BDBB19ABD3DE002A493F /* MyFollowerCollectionViewCell.h */,
+				F2B8BDBC19ABD3DE002A493F /* MyFollowerCollectionViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";

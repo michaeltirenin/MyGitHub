@@ -21,6 +21,8 @@
 @property (strong, nonatomic) NSMutableArray *myRepositories;
 @property (weak, nonatomic) NetworkController *appDelegateNetworkController;
 
+- (IBAction)addRepo:(UIBarButtonItem *)sender;
+
 @end
 
 @implementation MyReposViewController
@@ -81,6 +83,33 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     Repository *repository = self.myRepositories[indexPath.row];
     webViewVC.repository = repository;
+}
+
+- (IBAction)addRepo:(UIBarButtonItem *)sender {
+    
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"New Repo"
+                                                     message:@"Enter the name of your new repo:"
+                                                    delegate:self
+                                           cancelButtonTitle:@"Cancel"
+                                           otherButtonTitles:@"Create",nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.tag = 1;
+    [alert show];
+}
+
+- (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 0){
+        if (buttonIndex == 1) {
+        }
+    } else if (alertView.tag == 1 ) {
+        if (buttonIndex == 1 ) {
+            UITextField *repoName = [alertView textFieldAtIndex:0];
+            [self.appDelegateNetworkController createRepo:repoName.text];
+            [self.appDelegateNetworkController fetchUserReposAndFollowers];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }
 }
 
 @end

@@ -138,7 +138,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FQe-dc-pdW">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="riX-HZ-XWp"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="riX-HZ-XWp">
+                            <connections>
+                                <action selector="addRepo:" destination="l6G-7i-dNR" id="vep-cB-uKN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xmK-sx-FwC" id="qRl-8h-x5N"/>

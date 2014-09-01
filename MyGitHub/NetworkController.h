@@ -30,6 +30,10 @@
 -(void)fetchUserReposAndFollowers; // Jeff's solution
 -(void)beginOAuth; // Jeff's solution
 
+-(void)createRepo:(NSString *)repoName;
+
+@property (strong, nonatomic) NSString *repoName;
+
 @property (nonatomic, weak) id<NetworkControllerDelegate> delegate; // Jeff's solution
 
 @end

@@ -53,7 +53,7 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
     // set a bunch of properties on our request
-    [request setURL:[NSURL URLWithString:@"https://github.com/login/oauth//access_token"]]; // POST https://developer.github.com/v3/oauth/ (2)
+    [request setURL:[NSURL URLWithString:@"https://github.com/login/oauth/access_token"]]; // POST https://developer.github.com/v3/oauth/ (2)
     [request setHTTPMethod:@"POST"];
     // length of the data we are posting
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -269,5 +269,23 @@
     }
 }
 
+-(void)createRepo:(NSString *)repoName {
+    NSDictionary *post = @{@"name":repoName};
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:post options:0 error:nil];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
+    [request setURL:[NSURL URLWithString:@"https://api.github.com/user/repos"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:[NSString stringWithFormat:@"token %@", self.token] forHTTPHeaderField:@"Authorization"];
+    [request setValue:@"text/plain" forHTTPHeaderField:@"Content-type"];
+    [request setHTTPBody:jsonData];
+    
+    NSURLResponse *response;
+    NSError *error;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSLog(@"error: %@", error);
+}
 
 @end

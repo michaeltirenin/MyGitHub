@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) Repository *repository;
 @property (strong, nonatomic) User *userRepository;
+@property (strong, nonatomic) User *followerRepository;
 @property (strong, nonatomic) Code *codeRepository;
 
 @end

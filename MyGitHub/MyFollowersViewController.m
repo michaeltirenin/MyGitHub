@@ -13,6 +13,7 @@
 #import "User.h"
 #import "NetworkController.h"
 //#import "Constants.h"
+#import "WebViewController.h"
 
 @interface MyFollowersViewController () <UICollectionViewDataSource, UICollectionViewDelegate, NetworkControllerDelegate>
 
@@ -72,20 +73,21 @@
     
     User *follower = self.myFollowers[indexPath.row];
     followerCollCell.nameLabel.text = follower.userName;
-    NSLog(@"yes?");
+//    followerCollCell.nameLabel.text = follower.userRepoURL;
     followerCollCell.avatar.image = follower.userAvatarImage;
     
     return followerCollCell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"ToWebView" sender:indexPath];
 }
-*/
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    WebViewController *webViewVC = segue.destinationViewController;
+    NSIndexPath *indexPath = sender;
+    User *repository = self.myFollowers[indexPath.item];
+    webViewVC.followerRepository = repository;
+}
 
 @end

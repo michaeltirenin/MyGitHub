@@ -9,6 +9,7 @@
 #import "WebViewController.h"
 #import "Repository.h"
 #import "SearchViewController.h"
+#import "MyFollowersViewController.h"
 #import <WebKit/WebKit.h>
 
 @interface WebViewController () <UIWebViewDelegate>
@@ -45,6 +46,12 @@
 //        NSLog(@"THIS IS THE URL: %@",url);
 //        NSURLRequest *request = [NSURLRequest requestWithURL:url];
 //        [self.webViewOutlet loadRequest:request];
+    
+    } else if (self.followerRepository.userRepoURL != nil) {
+        NSURL *url = [[NSURL alloc] initWithString:self.followerRepository.userRepoURL];
+        NSLog(@"THIS IS THE URL: %@",url);
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.webViewOutlet loadRequest:request];
     }
 
     self.webViewOutlet.delegate = self; // not necessary when using WebKit

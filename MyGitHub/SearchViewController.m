@@ -106,7 +106,7 @@
 //        }
     } else if (self.searchBar.selectedScopeButtonIndex == 1) {
         
-        User *searchResult = self.searchResults[indexPath.row];
+        User *searchResult = self.searchResults[indexPath.item];
         
         if (searchResult.userAvatarImage == nil) {
             [self fetchUserImages:searchResult.userAvatarURL withCompletion:^(UIImage *avatarImage) {
@@ -215,7 +215,7 @@
     [self.collectionView reloadData];
 }
 
--(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"ToWebView" sender:indexPath];
 }
 

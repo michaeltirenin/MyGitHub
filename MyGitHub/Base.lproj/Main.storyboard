@@ -55,7 +55,6 @@
                                         <connections>
                                             <outlet property="avatar" destination="AML-op-WRA" id="tGP-Zy-HqE"/>
                                             <outlet property="nameLabel" destination="iu1-Ve-CC9" id="YOb-us-4JW"/>
-                                            <segue destination="OyK-eg-XZA" kind="show" id="JUD-QD-3HQ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -76,6 +75,7 @@
                     <navigationItem key="navigationItem" id="dv0-ue-Pir"/>
                     <connections>
                         <outlet property="collectionView" destination="See-f6-iBi" id="mvj-LA-TuF"/>
+                        <segue destination="OyK-eg-XZA" kind="show" identifier="ToWebView" id="a8T-7H-EQd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHa-w3-czZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -297,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jii-Gm-Ht5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-554" y="1512"/>
+            <point key="canvasLocation" x="-559" y="1514"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="Qp6-5r-tJH">
@@ -411,6 +411,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JUD-QD-3HQ"/>
+        <segue reference="a8T-7H-EQd"/>
     </inferredMetricsTieBreakers>
 </document>

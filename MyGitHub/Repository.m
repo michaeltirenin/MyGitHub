@@ -26,10 +26,12 @@
             self.repoDescription = @"n/a";
         }
         self.repoURL = itemDict[@"html_url"];
-        self.repoAvatar = itemDict[@"avatar_url"];
-        NSURL *repoAvatarURL = [NSURL URLWithString:self.repoAvatar];
-        NSData *repoAvatardata = [[NSData alloc] initWithContentsOfURL:repoAvatarURL];
+        self.repoAvatarURL = itemDict[@"avatar_url"];
+        
+        NSURL *repoAvatar_URL = [NSURL URLWithString:self.repoAvatarURL];
+        NSData *repoAvatardata = [[NSData alloc] initWithContentsOfURL:repoAvatar_URL];
         self.repoAvatarImage = [UIImage imageWithData:repoAvatardata];
+        
 //        self.repoAvatarImage = [UIImage imageWithData:[NSData dataWithContentsOfFile:[NSURL URLWithString:self.repoAvatar]]];
         self.repoLanguage = itemDict[@"language"];
         if ([self.repoLanguage isEqual:[NSNull null]]) {

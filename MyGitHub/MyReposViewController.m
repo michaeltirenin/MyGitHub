@@ -18,6 +18,8 @@
 @interface MyReposViewController () <UITableViewDataSource, UITableViewDelegate, NetworkControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *myRepositories;
+@property (weak, nonatomic) NetworkController *appDelegateNetworkController;
 
 @end
 
@@ -26,10 +28,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.tableView.dataSource = self;
-//    self.tableView.delegate = self;
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate; //Jeff's solution
+    appDelegate.networkController.delegate = self;
+    self.appDelegateNetworkController = appDelegate.networkController;
     
     self.navigationItem.title = @"My Repos";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    [self.appDelegateNetworkController beginOAuth];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,26 +47,40 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 2;
+    return self.myRepositories.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    MyRepoTableViewCell *repoCell = [tableView dequeueReusableCellWithIdentifier:@"RepoCell" forIndexPath:indexPath];
+    UITableViewCell *repoCell = [tableView dequeueReusableCellWithIdentifier:@"RepoCell" forIndexPath:indexPath];
 
-    repoCell.textLabel.text = @"test";
+    Repository *repo =self.myRepositories[indexPath.row];
+    
+    repoCell.textLabel.text = repo.repoName;
+    repoCell.detailTextLabel.text = repo.repoLanguage;
 
     return repoCell;
 }
 
-/*
-#pragma mark - Navigation
+-(void)reposFinishedParsing:(NSArray *)jsonArray {
+    NSMutableArray *repositories = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *repoDict in jsonArray) {
+        Repository *repository = [[Repository alloc]initWithDict:repoDict];
+        [repositories addObject:repository];
+    }
+    self.myRepositories = repositories;
+    [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+        [self.tableView reloadData];
+    }];
+};
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [[segue identifier] isEqualToString:@"ToWebView"];
+    WebViewController *webViewVC = segue.destinationViewController;
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    Repository *repository = self.myRepositories[indexPath.row];
+    webViewVC.repository = repository;
 }
-*/
 
 @end

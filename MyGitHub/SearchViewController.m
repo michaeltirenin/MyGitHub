@@ -145,10 +145,11 @@
         if (([searchResult.repoDescription isEqual: @"n/a"]) || ([searchResult.repoName isEqual: @"n/a"])) {
             searchCell.nameLabel.text = @"n/a";
             searchCell.descriptionLabel.text = @"n/a";
+            searchCell.avatar.image = searchResult.repoAvatarImage;
         } else {
             searchCell.nameLabel.text = [[[searchResult.repoName stringByAppendingString:@" ("]stringByAppendingString:searchResult.repoLanguage]stringByAppendingString:@")"];
-           searchCell.descriptionLabel.text = searchResult.repoDescription;
-//            searchCell.avatar.image = searchResult.repoAvatarImage;
+            searchCell.descriptionLabel.text = searchResult.repoDescription;
+            searchCell.avatar.image = searchResult.repoAvatarImage;
         }
 //    } else if (self.searchBar.selectedScopeButtonIndex == 1) {
 //        User *searchResult = self.searchResults[indexPath.row];

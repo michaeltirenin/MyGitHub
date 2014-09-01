@@ -56,7 +56,7 @@
 
     self.webViewOutlet.delegate = self; // not necessary when using WebKit
     
-    self.navigationItem.title = @"Web Link";
+    self.navigationItem.title = @"Web View";
 }
 
 - (void)didReceiveMemoryWarning {
